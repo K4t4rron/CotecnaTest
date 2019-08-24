@@ -8,13 +8,15 @@ import * as moment from 'moment';
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
-  @Input("month") selectedMonth:number;
-  @Input("year") selectedYear:number;
+  selectedMonth:number;
+  selectedYear:number;
   date;
   public daysArr;
   constructor() { }
 
   ngOnInit() {
+    this.selectedMonth= moment().month();;
+    this.selectedYear = moment().year();
     this.fillCalendar();
   }
 
