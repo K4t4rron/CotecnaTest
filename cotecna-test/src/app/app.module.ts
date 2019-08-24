@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { MonthListComponent } from './month-list/month-list.component';
 import { YearListComponent } from './year-list/year-list.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -21,7 +22,8 @@ import { CalendarDayComponent } from './calendar-day/calendar-day.component';
   imports: [
     BrowserModule,
     FormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule  
   ],
   providers: [],
   bootstrap: [AppComponent]

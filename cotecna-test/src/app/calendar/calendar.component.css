@@ -49,3 +49,9 @@ a.active {
 .reserved {
     color: blueviolet;
 }
+
+.filter {
+    display: inline-block;
+    flex-wrap: wrap;
+    padding: 10px
+};

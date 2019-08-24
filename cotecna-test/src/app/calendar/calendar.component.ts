@@ -15,8 +15,7 @@ export class CalendarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.date = moment().year(this.selectedYear).month(this.selectedMonth);
-    this.daysArr = this.createCalendar(this.date);
+    this.fillCalendar();
   }
 
   public createCalendar(month) {
@@ -43,6 +42,19 @@ export class CalendarComponent implements OnInit {
     this.daysArr = this.createCalendar(this.date);
   }
 
+  
+  onMonthChange(event){
+    this.selectedMonth= event.target.value;
+    this.fillCalendar();
+    
+  }
+
+  onYearChange(event){
+    this.selectedYear = event.target.value;
+    this.fillCalendar();
+    
+  }
+
   public todayCheck(day) {
     if (!day) {
       return false;
@@ -50,12 +62,9 @@ export class CalendarComponent implements OnInit {
     return moment().format('L') === day.format('L');
   }
 
-  public monthCheck(day) {
-    if (!day) {
-      
-      return false;
-    }
-    return moment().format('L') === day.format('L');
+  private fillCalendar(){
+    this.date = moment().year(this.selectedYear).month(this.selectedMonth);
+    this.daysArr = this.createCalendar(this.date);
   }
 
 }

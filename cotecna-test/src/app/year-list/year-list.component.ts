@@ -9,15 +9,17 @@ import * as moment from 'moment';
 export class YearListComponent implements OnInit {
   @Output() change = new EventEmitter();
   public yearsArr;
+  selectedYear;
   constructor() {
-    
+    let selectedYear = moment().year();
    }
 
   ngOnInit() {
-    this.yearsArr = this.fillYears(moment().year()-3);
+    this.selectedYear = moment().year();
+    this.yearsArr =this.fillYears(this.selectedYear - 3);
   }
 
-  private fillYears(year){
+  private fillYears(year:number){
     return Array(6).fill(null).map((item,index)=> year ++ );
   }
 
