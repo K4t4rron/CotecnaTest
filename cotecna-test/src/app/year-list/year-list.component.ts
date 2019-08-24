@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import * as moment from 'moment';
 
 @Component({
@@ -7,6 +7,7 @@ import * as moment from 'moment';
   styleUrls: ['./year-list.component.css']
 })
 export class YearListComponent implements OnInit {
+  @Output() change = new EventEmitter();
   public yearsArr;
   constructor() {
     

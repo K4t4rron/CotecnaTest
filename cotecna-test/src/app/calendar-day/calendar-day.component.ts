@@ -9,18 +9,27 @@ import * as moment from 'moment';
 export class CalendarDayComponent implements OnInit {
   @Input('selected-day') day;
   wheatherMessage='';
+  
   constructor() { }
-
+  
   ngOnInit() {
+    
+    console.log("MES A  MOSTRAR: ", this.day)
     if (this.IsCurrentMonth()){
-      this.wheatherMessage = this.day;
+      
+      this.wheatherMessage = "calor";
     }
 
   }
 
   IsCurrentMonth()
   {
-     return moment().isSame(this.day, 'month');
+    if (!this.day) return false;
+    let actualmonth = moment().month();
+    let actualyear = moment().year();
+
+    return ((this.day.month() === actualmonth) && (this.day.year() === actualyear) );
+    
   }
 
 }

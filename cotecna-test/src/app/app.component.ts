@@ -10,8 +10,14 @@ export class AppComponent {
   selectmonth:number;
   selectyear:number
   
-  onMonthChange(selectedMonth:number){
-    this.selectmonth= 1;
+  onMonthChange(event){
+    this.selectmonth= event.target.value;
     console.log("SELECTED MONTH CHANGE 2:",  this.selectmonth)
   }
+
+  onYearChange(event){
+    this.selectyear = event.target.value;
+    console.log("SELECECTED YEAR CHANGED TO: ", this.selectyear);
+  }
+  
 }

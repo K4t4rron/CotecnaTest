@@ -13,10 +13,6 @@ export class MonthListComponent implements OnInit {
   constructor() { }
   selectedMonth 
   ngOnInit() {
-    this.selectedMonth = moment().month() + 1 ;
+    this.selectedMonth = moment().month();
   }
-  onChange() {
-    this.change.emit(this.selectedMonth);;
-  }
-
 }
