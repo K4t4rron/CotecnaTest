@@ -1,3 +1,4 @@
+import { WheatherServiceService } from './../services/wheather-service.service';
 import { Component, OnInit, Input } from '@angular/core';
 import * as moment from 'moment';
 
@@ -8,18 +9,23 @@ import * as moment from 'moment';
 })
 export class CalendarDayComponent implements OnInit {
   @Input('selected-day') day;
-  wheatherMessage='';
-  
-  constructor() { }
+  wheatherMessage;
+  result;
+  private response?:any;
+  constructor(private service: WheatherServiceService) { }
   
   ngOnInit() {
     
-    console.log("MES A  MOSTRAR: ", this.day)
+   
     if (this.IsCurrentMonth()){
-      
-      this.wheatherMessage = "calor";
+      this.service.getWheather().subscribe(r=>{
+       this.response = r;
+      });
+      console.log("respnse=", this.response);
+      this.wheatherMessage='';
+      if(this.response)
+          this.wheatherMessage = this.response.weather[0].description + ' (' + this.response.main.temp + ' ºC)';
     }
-
   }
 
   IsCurrentMonth()
