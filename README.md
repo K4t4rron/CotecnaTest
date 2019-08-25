@@ -28,3 +28,5 @@ GitLab / Bitbucket or zipped into a file.
 * Full calendar components and date pickers are forbidden. The intent of the exercise is
 to implement the logic to display the calendar yourself. However, you are free to use
 libraries like moment.js (or similar) to make date manipulation easier.
+
+Unit tests are not explicitly required, but we will appreciate them.
