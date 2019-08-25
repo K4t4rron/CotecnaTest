@@ -16,7 +16,7 @@ export class CalendarDayComponent implements OnInit {
   constructor(private service: WheatherServiceService) { }
   
   ngOnInit() {
-    if (this.isNextFiveDays()){
+    if (this.isNextFiveDays(this.day)){
       this.loadWeather();
     }
   }
@@ -32,18 +32,10 @@ export class CalendarDayComponent implements OnInit {
     })
   }
 
-  private IsCurrentMonth()
-  {
-    if (!this.day) return false;
-    let actualmonth = moment().month();
-    let actualyear = moment().year();
+  
 
-    return ((this.day.month() === actualmonth) && (this.day.year() === actualyear) );
- 
-  }
-
-  private isNextFiveDays(){
-    if(!this.day) return false;
-    return moment(this.day.startOf('d')).isBetween(moment().startOf('day'), moment().add(5,'d').endOf('day').add(-1),null,'[]');
+  public isNextFiveDays(day){
+    if(!day) return false;
+    return moment(day.startOf('d')).isBetween(moment().startOf('day'), moment().add(4,'d').endOf('day').add(-1),null,'[]');
   }
 }
