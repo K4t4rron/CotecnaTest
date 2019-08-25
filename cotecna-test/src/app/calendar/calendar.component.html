@@ -25,9 +25,10 @@
        
         <div class='flex-container flex-wrap '>
             <div *ngFor="let day of daysArr">
-                <div class='calendar-days flex-container flex-center '  [ngClass]="{'inactive ': !day, 'today': todayCheck(day)}">
+                <div class='calendar-days flex-container flex-center '  [ngClass]="{'inactive ': !isThisMonth(day) , 'today': todayCheck(day)}">
                     {{day?.date()}}
-                    <app-calendar-day [selected-day] = "day"></app-calendar-day>
+                    
+                    <appcalendarday [selected-day] = "day"></appcalendarday>
                 </div>
             </div>
         </div>

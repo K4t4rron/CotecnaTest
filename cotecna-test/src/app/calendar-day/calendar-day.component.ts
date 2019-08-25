@@ -4,25 +4,30 @@ import { WeatherResponse, Weather } from  '../services/weather-response';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'app-calendar-day',
+  selector: 'appcalendarday',
   templateUrl: './calendar-day.component.html',
   styleUrls: ['./calendar-day.component.css']
 })
 export class CalendarDayComponent implements OnInit {
   @Input('selected-day') day;
   wheatherMessage: string;
+  result:WeatherResponse;
   
   constructor(private service: WheatherServiceService) { }
   
   ngOnInit() {
-    if (this.IsCurrentMonth()){
+    if (this.isNextFiveDays()){
       this.loadWeather();
     }
   }
 
   private loadWeather(){
     return this.service.getWheather().subscribe((data:WeatherResponse) =>{
-     this.wheatherMessage = data.weather[0].description + ' (' + data.main.temp  + ' ºC)';
+    //console.log(data.list.map(function(item){return moment(item.dt_txt);}));
+    let value = data.list.find(x=>moment(x.dt_txt).format('L') === this.day.format('L'))
+    this.wheatherMessage='';
+    if(value)       
+     this.wheatherMessage = value.weather[0].description + ' (' + value.main.temp + ') ºC ';
      
     })
   }
@@ -35,5 +40,10 @@ export class CalendarDayComponent implements OnInit {
 
     return ((this.day.month() === actualmonth) && (this.day.year() === actualyear) );
  
+  }
+
+  private isNextFiveDays(){
+    if(!this.day) return false;
+    return moment(this.day.startOf('d')).isBetween(moment().startOf('day'), moment().add(5,'d').endOf('day').add(-1),null,'[]');
   }
 }

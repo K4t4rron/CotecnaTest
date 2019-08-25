@@ -16,18 +16,18 @@ a.active {
 }
 
 #calendar-container {
-    width: 650px;
+    width: 750px;
 }
 
 .calendar-days {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     background: #669999;
     border: 3px solid #c2c2c2;
 }
 
 .calendar-days-header {
-    width: 80px;
+    width: 100px;
     height: 30px;
     background: #8ef3f3;
     border: 3px solid #c2c2c2;

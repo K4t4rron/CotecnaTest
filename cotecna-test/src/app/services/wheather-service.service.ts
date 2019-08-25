@@ -6,7 +6,7 @@ import { WeatherResponse, Weather } from  './weather-response';
   providedIn: 'root'
 })
 export class WheatherServiceService {
-  private url ="http://api.openweathermap.org/data/2.5/weather?q=Barcelona,es&units=metric&APPID=0eb550209edec90a152b164d8ad2df33";
+  private url ="http://api.openweathermap.org/data/2.5/forecast?q=Barcelona,es&units=metric&APPID=0eb550209edec90a152b164d8ad2df33";
   constructor(private http: HttpClient) { }
 
   getWheather(){

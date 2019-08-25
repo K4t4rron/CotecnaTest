@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { YearListComponent } from './year-list.component';
@@ -8,7 +9,10 @@ describe('YearListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ YearListComponent ]
+      declarations: [ YearListComponent ],
+      imports: [
+          FormsModule
+      ]
     })
     .compileComponents();
   }));
