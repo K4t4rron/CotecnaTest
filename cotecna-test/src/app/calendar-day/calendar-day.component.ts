@@ -17,14 +17,14 @@ export class CalendarDayComponent implements OnInit {
   
   ngOnInit() {
     if (this.isNextFiveDays(this.day)){
-      
+      //this.loadWeather();
       this.loadWeatherApi();
     }
   }
 
   private loadWeather(){
     return this.service.getWheather().subscribe((data:WeatherResponse) =>{
-    //console.log(data.list.map(function(item){return moment(item.dt_txt);}));
+
     let value = data.list.find(x=>moment(x.dt_txt).format('L') === this.day.format('L'))
     this.wheatherMessage='';
     if(value)       
@@ -36,8 +36,7 @@ export class CalendarDayComponent implements OnInit {
   private loadWeatherApi(){
     
     return this.service.getWheatherApi(this.day.format('YYYY-MM-DD')).subscribe((data:string) =>{
-    //console.log(data.list.map(function(item){return moment(item.dt_txt);}));
-    console.log("HOLA",data);
+    
      this.wheatherMessage = data;
     })
   }
