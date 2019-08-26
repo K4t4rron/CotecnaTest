@@ -27,7 +27,7 @@ export class CalendarDayComponent implements OnInit {
     let value = data.list.find(x=>moment(x.dt_txt).format('L') === this.day.format('L'))
     this.wheatherMessage='';
     if(value)       
-     this.wheatherMessage = value.weather[0].description + ' (' + value.main.temp + ') ºC ';
+     this.wheatherMessage = value.weather[0].description + ' (' + Math.round(value.main.temp) + 'ºC)';
      
     })
   }
