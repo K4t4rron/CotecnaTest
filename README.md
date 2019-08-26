@@ -1,7 +1,27 @@
 # CotecnaTest
-Tecnical Test for Cotecna
+conecta-test is build with the latest version of angular
+conectaAPi is build with .Net Core 2.2 frameWork
 
-Calendar Exercise
+# HOW TO USE 
+
+* Download/clone Repo to you desired local folder.
+* **To run api:** from terminal go to project folder, goto folder  **CotecnaApi->CotecnaApi** and run  **DotNet Run**
+* **To run angular client:** Open new Terminal, go to project, goto folder *cotecna-test* and run *npm install --save-dev @angular-devkit/build-angular* and then **ng serve**
+
+# RUN Angular client without API
+* Go to src->app->calendar-day->calendar-day.component.ts
+* In **ngOnInit** method uncomment  **//this.loadWeather();** line and comment **this.loadWeatherApi();** line
+
+Notes:
+> The calendar must display the temperature and weather condition forecast (cloudy,
+> sunny, snow, etc) for the next 5 days, but only if the calendar is set to the current
+> month.
+  * I Consider *the next 5 days* is from today to the following four days.
+
+***
+## Tecnical Test for Cotecna
+
+## Calendar Exercise
 
 User story
 As Cotecna inspector I need a new calendar app that allows me to see the weather forecast for
